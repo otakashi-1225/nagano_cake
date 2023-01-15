@@ -1,24 +1,22 @@
-# README
+# nagano_cake
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 設計書
+### 提供物
+要件定義書
+https://docs.google.com/document/d/1B5mfUpSiCn7Z_EggG1KuDitg45OMP0rOLSgQGe4c2nE/edit?usp=sharing
 
-Things you may want to cover:
+### 作成物
+スケジュール _48170_堀尾享司
+https://docs.google.com/spreadsheets/d/105fg_Ym8hcdBRyCUglZ2LKjgNDOuXzdSL3JqtnkEfTc/edit#gid=564043641
 
-* Ruby version
+ながのCAKE_テスト仕様書_就業両立コース_堀尾享司
+https://docs.google.com/spreadsheets/d/1z95WIUAhw9gqKkH1xgrGvAWMngDhubzp7YTcwuflIhQ/edit#gid=1289001360
 
-* System dependencies
+就業両立_設計課題_テーブル定義書_回答用_堀尾享司
+https://docs.google.com/spreadsheets/d/1-FeDkuoI8WdEQsW8WyhDHcFE6rETlXH0YcRxEzr33ek/edit#gid=2034983829
 
-* Configuration
+設計課題_アプリケーション詳細設計書_回答用 ‗堀尾享司
+https://docs.google.com/spreadsheets/d/1HfmhbEpjVfyjhErbH2ecYbGQkxrxTPAoik8DtfZMHzU/edit#gid=549108681
 
-* Database creation
 
-* Database initialization
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
