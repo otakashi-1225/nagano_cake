@@ -2,16 +2,23 @@ Rails.application.routes.draw do
 
   # 顧客用
   # URL /customers/sign_in ...
+
   devise_for :customers, controllers: {
-    registrations: "public/registrations",
+    registrations: 'public/registrations',
     sessions: 'public/sessions'
   }
 
-  # 管理者用
+  resources :customers, only: [:show, :edit, :update],  module: 'public'
+  get '/customer/quit', to: 'public/customers#quit'
+  patch '/customer/flag', to: 'public/customers#flag'
+
+
+
   # URL /admin/sign_in ...
   devise_for :admin, controllers: {
     sessions: "admin/sessions"
   }
+
 
   root to: 'homes#top'
   get "about" => "homes#about", as: "about"

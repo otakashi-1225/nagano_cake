@@ -111,4 +111,10 @@ InstagramのDMやメールで通販の注文を受けていたが、情報管理
 ◆画面について
 画面数や各種レイアウトは、後続の「画面設計」フェーズにて詳細を決定する。
 
+
+## 参考サイト
+[新規会員登録bootstrap参考](https://bootstrap-guide.com/forms/layout)
+
 以上
+
+
