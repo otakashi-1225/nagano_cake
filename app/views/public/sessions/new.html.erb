@@ -4,54 +4,30 @@
     <div class="col-sm-12">
 
       <h2>ログイン</h2>
-      
+
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <div class="form-row">
-          <legend class="col-form-label col-sm"></legend>
-          <div class="form-group col-sm">
-            <%= f.text_field :first_name, autofocus: true, :placeholder => "令和" %>
-          </div>
-          <legend class="col-form-label col-auto">(名)</legend>
-          <div class="form-group col-sm">
-            <%= f.text_field :last_name, autofocus: true, :placeholder => "道子" %>
-          </div>
-        </div>
-
-        <div class="form-row">
-          <legend class="col-form-label col-sm">フリガナ</legend>
-          <legend class="col-form-label col-auto">(セイ)</legend>
-          <div class="form-group col-sm">
-            <%= f.text_field :first_name_kana, autofocus: true, :placeholder => "レイワ" %>
-          </div>
-          <legend class="col-form-label col-auto">(メイ)</legend>
-          <div class="form-group col-sm">
-              <%= f.text_field :last_name_kana, autofocus: true, :placeholder => "ミチコ" %>
-          </div>
-        </div>
-
-      
         <div class="field">
           <%= f.label :email %><br />
           <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
         </div>
-      
+
         <div class="field">
           <%= f.label :password %><br />
           <%= f.password_field :password, autocomplete: "current-password" %>
         </div>
-      
+
         <% if devise_mapping.rememberable? %>
           <div class="field">
             <%= f.check_box :remember_me %>
             <%= f.label :remember_me %>
           </div>
         <% end %>
-      
+
         <div class="actions">
           <%= f.submit "Log in" %>
         </div>
       <% end %>
-      
+
       <%= render "public/shared/links" %>
     </div>
   </div>
