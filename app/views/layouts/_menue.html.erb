@@ -6,7 +6,9 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse justify-content-around text-light"> ようこそ<%= current_customer.first_name %>さん! </div>
+    <% if customer_signed_in? %>
+      <div class="collapse navbar-collapse justify-content-around text-light"> ようこそ<%= current_customer.first_name %>さん! </div>
+    <% end %>
 
     <div class="collapse navbar-collapse flex-column" id="navbarNavDropdown">
       <ul class="navbar-nav ml-auto">

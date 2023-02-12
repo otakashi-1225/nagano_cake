@@ -8,9 +8,10 @@ Rails.application.routes.draw do
     sessions: 'public/sessions'
   }
 
-  resources :customers, only: [:show, :edit, :update],  module: 'public'
-  get '/customer/quit', to: 'public/customers#quit'
-  patch '/customer/flag', to: 'public/customers#flag'
+  resources :customers, only: [:show, :update],  module: 'public'
+  get '/customer/edit', to: 'public/customers#edit', as: 'edit_customer'
+  get '/customer/quit', to: 'public/customers#quit', as: 'quit_customer'
+  patch '/customer/flag', to: 'public/customers#flag', as: 'flag_customer'
 
 
 
