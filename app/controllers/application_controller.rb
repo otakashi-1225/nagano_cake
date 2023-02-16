@@ -2,7 +2,12 @@ class ApplicationController < ActionController::Base
 	before_action :customers_configure_permitted_parameters, if: :devise_controller?
 
 	def after_sign_in_path_for(resource)
-		customer_path(current_customer.id)
+		case resource
+		when Customer
+			customer_path(current_customer.id)
+		when Admin
+			about_path
+		end
 	end
 
 	def after_sign_out_path_for(resource)

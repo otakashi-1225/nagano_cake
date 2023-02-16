@@ -1,0 +1,97 @@
+<div class="container">
+	<div calss="row">
+    <div class="col-sm-12 pt-3 ">
+
+			<h3>
+      	<span class="bg-secondary text-white">　<%= @customer.first_name + @customer.last_name%>さんの会員情報　</span>
+		  </h3>
+		  <%= form_with model: @customer, url: admin_customer_path(@customer.id), method: :patch do |f| %>
+			  <div class="col-sm-12">
+	        <div class="form-row">
+	          <div class="form-group col-sm">会員番号</div>
+	          <div class="form-group col-sm">
+	            <%= @customer.id%>
+	          </div>
+	          <div class="form-group col-sm"></div>
+	        </div>
+
+	        <div class="form-row">
+	          <legend class="col-form-label col-sm">名前</legend>
+	          <legend class="col-form-label col-auto">(性)</legend>
+	          <div class="form-group col-sm">
+	            <%= f.text_field :first_name, autofocus: true %>
+	          </div>
+	          <legend class="col-form-label col-auto">(名)</legend>
+	          <div class="form-group col-sm">
+	            <%= f.text_field :last_name, autofocus: true %>
+	          </div>
+	        </div>
+
+
+	        <div class="form-row">
+	          <legend class="col-form-label col-sm">フリガナ</legend>
+	          <legend class="col-form-label col-auto">(セイ)</legend>
+	          <div class="form-group col-sm">
+	            <%= f.text_field :first_name_kana, autofocus: true %>
+	          </div>
+	          <legend class="col-form-label col-auto">(メイ)</legend>
+	          <div class="form-group col-sm">
+	              <%= f.text_field :last_name_kana, autofocus: true  %>
+	          </div>
+	        </div>
+
+	        <div class="form-row">
+	          <div class="form-group col-sm">郵便番号（ハイフンなし）</div>
+	          <div class="form-group col-sm">
+	            <%= f.text_field :postal_code, class: 'from-controll', autofocus: true %>
+	          </div>
+	          <div class="form-group col-sm"></div>
+	        </div>
+
+	        <div class="form-row">
+	          <div class="form-group col-sm">住所</div>
+	          <div class="form-group col-sm">
+	            <%= f.text_field :address, class: 'col-sm-12', autofocus: true %>
+	          </div>
+	          <div class="form-group col-sm"></div>
+	        </div>
+
+	        <div class="form-row">
+	          <div class="form-group col-sm">電話番号(ハイフンなし)</div>
+	          <div class="form-group col-sm">
+	            <%= f.text_field :telephone_number, class: 'col-sm-12', autofocus: true %>
+	          </div>
+	          <div class="form-group col-sm"></div>
+	        </div>
+
+	        <div class="form-row">
+	          <div class="form-group col-sm">メールアドレス</div>
+	          <div class="form-group col-sm">
+	            <%= f.email_field :email, class: 'from-controll', autofocus: true %>
+	          </div>
+	          <div class="form-group col-sm"></div>
+	        </div>
+
+	        <div class="form-row">
+	          <div class="form-group col-sm">会員ステータス</div>
+	          <div class="form-group col-sm">
+							<label><%= f.radio_button(:is_deleted, 0, :checked => @customer.is_deleted) %>有効</label>
+							<label><%= f.radio_button(:is_deleted, 1, :checked => @customer.is_deleted) %>退会</label>
+						</div>
+	          <div class="form-group col-sm"></div>
+	        </div>
+
+
+	        <div class="from-row">
+	          <div class="form-group col-sm"></div>
+	          <div class="form-group col-sm">
+	            <%= f.submit "編集内容を保存", class:'btn btn-success form-group col-6 sign_in' %>
+	          </div>
+	        </div>
+
+	        </div>
+	      <% end %>
+	    </div>
+    </div>
+  </div>
+</div>

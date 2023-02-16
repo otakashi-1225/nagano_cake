@@ -13,13 +13,14 @@ Rails.application.routes.draw do
   get '/customer/quit', to: 'public/customers#quit', as: 'quit_customer'
   patch '/customer/flag', to: 'public/customers#flag', as: 'flag_customer'
 
-
-
   # URL /admin/sign_in ...
   devise_for :admin, controllers: {
     sessions: "admin/sessions"
   }
 
+  namespace :admin do
+    resources :customers, only: [:index, :show, :edit, :update]
+  end
 
   root to: 'homes#top'
   get "about" => "homes#about", as: "about"
