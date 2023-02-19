@@ -1,0 +1,28 @@
+<div class="container">
+	<div calss="row">
+    <div class="col-sm-12 pt-3 ">
+
+			<h3>
+				<span class="bg-secondary text-white">　ジャンル一覧・追加　</span>
+ 			</h3>
+		</div>
+
+		<%= form_with url: admin_genre_path(@genre.id), model: @genre, method: :patch do |f| %>
+			<div class="col-sm-8 pt-5">
+				<div class="form-row">
+					<div class="form-group col-sm-2">ジャンル名</div>
+
+					<div class="form-group col-sm">
+						<%= f.text_field :name, autofocus: true%>
+					</div>
+
+					<div class="form-group col-sm">
+						<%= f.submit "変更を保存する", class:'btn btn-success form-group col-6 sign_in' %>
+					</div>
+				</div>
+			</div>
+		<% end %>
+
+    </div>
+  </div>
+</div>
