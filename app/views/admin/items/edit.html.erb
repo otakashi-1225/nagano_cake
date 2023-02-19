@@ -1,82 +1,53 @@
 <div class="container">
 	<div calss="row">
-    <div class="col-sm-12 pt-3 ">
+		<div class="col-sm-12 pt-3 ">
 
 			<h3>
-      	<span class="bg-secondary text-white">　<%= @customer.first_name + @customer.last_name%>さんの会員情報　</span>
-		  </h3>
-		  <%= form_with model: @customer, url: admin_customer_path(@customer.id), method: :patch do |f| %>
-			  <div class="col-sm-12">
-	        <div class="form-row">
-	          <div class="form-group col-sm">会員番号</div>
-	          <div class="form-group col-sm">
-	            <%= @customer.id%>
-	          </div>
-	          <div class="form-group col-sm"></div>
-	        </div>
+				<span class="bg-secondary text-white">　商品編集　</span>
+ 			</h3>
+
+			<%= form_with model: @item, url: admin_item_path(@item.id), method: :patch do |f| %>
+				<div class="col-sm-8 mx-auto pt-5">
+					<div class="form-row">
+						<div class="form-group col-sm-4">商品画像</div>
+						<div class="form-group col-sm">
+						  <%= f.file_field :item_image, accept: "image/*" %>
+						</div>
+					</div>
+
+					<div class="form-row">
+						<div class="form-group col-sm-4">商品名</div>
+						<div class="form-group col-sm">
+						  <%= f.text_field :name, size: "40", autofocus: true%>
+						</div>
+					</div>
+
+					<div class="form-row">
+						<div class="form-group col-sm-4">商品説明</div>
+						<div class="form-group col-sm">
+						  <%= f.text_area :introduction, size: "43x5", autofocus: true %>
+						</div>
+					</div>
+
+					<div class="form-row">
+						<div class="form-group col-sm-4">ジャンル</div>
+						<div class="form-group col-sm">
+							<%= f.collection_select :genre_id, Genre.all, :id, :name %>
+						</div>
+					</div>
+
+					<div class="form-row">
+						<div class="form-group col-sm-4">税抜価格</div>
+						<div class="form-group col-sm">
+						  <%= f.text_field :price, size: "40", autofocus: true  %>
+						</div>
+					</div>
 
 	        <div class="form-row">
-	          <legend class="col-form-label col-sm">名前</legend>
-	          <legend class="col-form-label col-auto">(性)</legend>
+	          <div class="form-group col-sm-4">販売ステータス</div>
 	          <div class="form-group col-sm">
-	            <%= f.text_field :first_name, autofocus: true %>
-	          </div>
-	          <legend class="col-form-label col-auto">(名)</legend>
-	          <div class="form-group col-sm">
-	            <%= f.text_field :last_name, autofocus: true %>
-	          </div>
-	        </div>
-
-
-	        <div class="form-row">
-	          <legend class="col-form-label col-sm">フリガナ</legend>
-	          <legend class="col-form-label col-auto">(セイ)</legend>
-	          <div class="form-group col-sm">
-	            <%= f.text_field :first_name_kana, autofocus: true %>
-	          </div>
-	          <legend class="col-form-label col-auto">(メイ)</legend>
-	          <div class="form-group col-sm">
-	              <%= f.text_field :last_name_kana, autofocus: true  %>
-	          </div>
-	        </div>
-
-	        <div class="form-row">
-	          <div class="form-group col-sm">郵便番号（ハイフンなし）</div>
-	          <div class="form-group col-sm">
-	            <%= f.text_field :postal_code, class: 'from-controll', autofocus: true %>
-	          </div>
-	          <div class="form-group col-sm"></div>
-	        </div>
-
-	        <div class="form-row">
-	          <div class="form-group col-sm">住所</div>
-	          <div class="form-group col-sm">
-	            <%= f.text_field :address, class: 'col-sm-12', autofocus: true %>
-	          </div>
-	          <div class="form-group col-sm"></div>
-	        </div>
-
-	        <div class="form-row">
-	          <div class="form-group col-sm">電話番号(ハイフンなし)</div>
-	          <div class="form-group col-sm">
-	            <%= f.text_field :telephone_number, class: 'col-sm-12', autofocus: true %>
-	          </div>
-	          <div class="form-group col-sm"></div>
-	        </div>
-
-	        <div class="form-row">
-	          <div class="form-group col-sm">メールアドレス</div>
-	          <div class="form-group col-sm">
-	            <%= f.email_field :email, class: 'from-controll', autofocus: true %>
-	          </div>
-	          <div class="form-group col-sm"></div>
-	        </div>
-
-	        <div class="form-row">
-	          <div class="form-group col-sm">会員ステータス</div>
-	          <div class="form-group col-sm">
-							<label><%= f.radio_button(:is_deleted, 0, :checked => @customer.is_deleted) %>有効</label>
-							<label><%= f.radio_button(:is_deleted, 1, :checked => @customer.is_deleted) %>退会</label>
+							<%= f.radio_button(:is_active, 1, :checked => @item.is_active) %>販売中
+							<%= f.radio_button(:is_active, 0, :checked => !@item.is_active) %>販売停止中
 						</div>
 	          <div class="form-group col-sm"></div>
 	        </div>
@@ -89,9 +60,8 @@
 	          </div>
 	        </div>
 
-	        </div>
-	      <% end %>
-	    </div>
+				</div>
+			<% end %>
     </div>
   </div>
 </div>

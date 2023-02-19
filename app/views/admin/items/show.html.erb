@@ -2,62 +2,63 @@
 	<div calss="row">
 		<div class="col-sm-12 pt-3 ">
 
-	      <h3>
-	      	<span class="bg-secondary text-white">　<%= @customer.first_name + @customer.last_name%>さんの会員情報　</span>
-	      </h3>
+			<h3>
+				<span class="bg-secondary text-white">　商品詳細　</span>
+			</h3>
 
-		<table class="table table-borderless">
-			<tbody>
-				<tr>
-					<td>会員ID</td>
-					<td><%= @customer.id %></td>
-				</tr>
-				<tr>
-					<td>氏名</td>
-					<td><%= @customer.first_name + @customer.last_name %></td>
-				</tr>
-				<tr>
-					<td>カナ</td>
-					<td><%= @customer.first_name_kana + @customer.last_name_kana %></td>
-				</tr>
-				<tr>
-					<td>郵便番号</td>
-					<td><%= @customer.postal_code %></td>
-				</tr>
-				<tr>
-					<td>住所</td>
-					<td><%= @customer.address %></td>
-				</tr>
-				<tr>
-					<td>電話番号</td>
-					<td><%= @customer.telephone_number %></td>
-				</tr>
-				<tr>
-					<td>メールアドレス</td>
-					<td><%= @customer.email %></td>
-				</tr>
-				<tr>
-					<td>会員ステータス</td>
-					<% if @customer.is_deleted? %>
-						<td class="text-success font-weight-bold">有効
-					<% else %>
-						<td class="text-secondary font-weight-bold">退会
-					<% end %>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-
-	    <div class="form-row">
-	      <div class="form-group col-sm">
-	        <%= link_to "編集する", edit_admin_customer_path, class:'btn btn-success btn-sm mb-3 sign_in'%>
-	      </div>
-	      <div class="form-group col-sm">
-	        <%= link_to "注文履歴を見る", edit_admin_customer_path, class:'btn btn-primary btn-sm mb-3 sign_in'%>
-	      </div>
-	    </div>
-
-
+			<div class="col-md-12 form-row pt-5">
+				<div class="form-group col-md-3">
+					<%= image_tag @item.get_item_image %>
+				</div>
+				<div class="form-group col-md-8 offset-md-1">
+					<div class="form-row">
+						<div class="form-group col-sm-4">商品名</div>
+						<div class="form-group col-sm">
+						  <%= @item.name %>
+						</div>
+					</div>
+	
+					<div class="form-row">
+						<div class="form-group col-sm-4">商品説明</div>
+						<div class="form-group col-sm">
+						  <%= @item.introduction %>
+						</div>
+					</div>
+	
+					<div class="form-row">
+						<div class="form-group col-sm-4">ジャンル</div>
+						<div class="form-group col-sm">
+						  <%= @genre.name %>
+						</div>
+					</div>
+	
+					<div class="form-row">
+						<div class="form-group col-sm-4">税抜価格</br>（税込価格）</div>
+						<h4 class="form-group col-sm">
+						  <%= @item.price.to_s(:delimited) %> (<%=@item.tax.to_s(:delimited) %>)円
+						</h4>
+					</div>
+	
+	        <div class="form-row">
+	          <div class="form-group col-sm-4">販売ステータス</div>
+	          <div class="form-group col-sm">
+							<% if @item.is_active? %>
+								<h5 class="text-success font-weight-bold">販売中</h5>
+							<% else %>
+								<h5 class="text-secondary font-weight-bold">販売停止中</h5>
+							<% end %>
+						</div>
+	        </div>
+	
+	
+	        <div class="from-row">
+	          <div class="form-group col-sm">
+	            <%= link_to "編集する", edit_admin_item_path(@item.id), class:'btn btn-success form-group col-6 sign_in' %>
+	          </div>
+	        </div>
+				</div>
+			</div>
+		
 		</div>
 	</div>
 </div>
