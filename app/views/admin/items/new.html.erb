@@ -1,0 +1,55 @@
+<div class="container">
+	<div calss="row">
+		<div class="col-sm-12 pt-3 ">
+
+			<h3>
+				<span class="bg-secondary text-white">　新規商品登録　</span>
+ 			</h3>
+	
+			<%= form_with model: @new_item do |f| %>
+				<div class="col-sm-12">
+					<div class="form-row">
+						<div class="form-group col-sm">商品画像</div>
+							<div class="form-group col-sm">
+							  <%= f.file_field :item_image, accept: "image/*" %>
+							</div>
+						</div>
+
+						<div class="form-row">
+							<legend class="col-form-label col-sm">商品名</legend>
+							<div class="form-group col-sm">
+							  <%= f.text_field :name, autofocus: true %>
+							</div>
+						</div>
+
+						<div class="form-row">
+							<legend class="col-form-label col-sm">商品説名</legend>
+							<div class="form-group col-sm">
+							  <%= f.text_area :introduction, autofocus: true %>
+							</div>
+						</div>
+
+
+	        <div class="form-row">
+	          <div class="form-group col-sm">会員ステータス</div>
+	          <div class="form-group col-sm">
+							<label><%= f.radio_button(:is_deleted, 0, :checked => @item.is_deleted) %>有効</label>
+							<label><%= f.radio_button(:is_deleted, 1, :checked => @item.is_deleted) %>退会</label>
+						</div>
+	          <div class="form-group col-sm"></div>
+	        </div>
+
+
+	        <div class="from-row">
+	          <div class="form-group col-sm"></div>
+	          <div class="form-group col-sm">
+	            <%= f.submit "編集内容を保存", class:'btn btn-success form-group col-6 sign_in' %>
+	          </div>
+	        </div>
+
+	        </div>
+	      <% end %>
+	    </div>
+    </div>
+  </div>
+</div>

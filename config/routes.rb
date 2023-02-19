@@ -20,7 +20,9 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :customers, only: [:index, :show, :edit, :update]
+    resources :items
   end
+
 
   root to: 'homes#top'
   get "about" => "homes#about", as: "about"

@@ -3,6 +3,21 @@ class Admin::ItemsController < ApplicationController
     @items = Item.page(params[:page])
   end
 
+  def new
+    @new_item = Item.new
+  end
+
+  def create
+    @new_item = Item.new(item_params)
+    if @new_item.save
+      flash[:notice] = "商品を作成しました!!"
+      redirect_to admin_item_path(@new_item.id)
+    else
+      render :new
+    end
+  end
+
+
   def show
     @item = Item.find(params[:id])
   end
@@ -10,6 +25,7 @@ class Admin::ItemsController < ApplicationController
   def edit
     @item = Item.find(params[:id])
   end
+
 
   def update
     @item = Item.find(params[:id])
